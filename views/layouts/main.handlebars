@@ -6,23 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Blog</title>
   {{!-- <link rel="stylesheet" href="/stylesheets/style.css"> --}}
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
-<body>
   <div class="wrapper">
+<body>
     <header>
-      <h1>
-        <a href="/">The Tech Blog</a>
-      </h1>
+  {{!-- materialize nav bar --}}
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">The Tech Blog</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Home</a></li>
+        <li><a href="badges.html">Dashboard</a></li>
+        <li><a id="login-button"href="/login">Login</a></li>
+        <li><a id="login-button"href="/signup">Create Account</a></li>
+      </ul>
+    </div>
+  </nav>
     </header>
+</body>
+</div>
+
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
-  </div>
+   
 
-</body>
 
+<script src="/javascript/homepage.js"></script>
 </html>
+
