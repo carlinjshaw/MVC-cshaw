@@ -1,12 +1,12 @@
 
 const router = require("express").Router();
-const { Users } = require("../../models");
+const { User } = require("../../models");
 
 
 
 router.get("/", (req, res) => {
-    Users.findAll()
-      .then((dbPullups) => res.json(dbPullups))
+    User.findAll()
+      .then((dbUsers) => res.json(dbUsers))
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   
   router.post("/", (req, res) => {
     console.log("POST IS RUNNING");
-    Users.create({
+    User.create({
       username: req.body.username,
       password: req.body.password,
     })
@@ -37,7 +37,7 @@ router.get("/", (req, res) => {
   //route for signing in
   router.post("/login", (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-    Users.findOne({
+    User.findOne({
       where: {
         username: req.body.username,
       },
