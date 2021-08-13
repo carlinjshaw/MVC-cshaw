@@ -1,7 +1,7 @@
 
-  console.log("SCRIPT IS CONNECTED")
 
 function signupFormHandler(event) {
+  console.log("SCRIPT IS CONNECTED")
     event.preventDefault();
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();

@@ -1,19 +1,28 @@
-function loginFormHandler(event) {
+async function loginFormHandler(event) {
     event.preventDefault();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
     console.log("SCRIPT IS CONNECTED")
+
+    const username = document.querySelector('#username').value.trim();
+    const password = document.querySelector('#password').value.trim();
     
-      if (email && password) {
-        fetch('/data/users/login', {
+    
+      if (username && password) {
+        const response = await fetch('/data/users/login', {
           method: 'post',
           body: JSON.stringify({
-            email,
+            username,
             password
           }),
           headers: { 'Content-Type': 'application/json' }
-        }).then((response) => {console.log(response)})
+        })
+      
+
+      if (response.ok) {
+        document.location.replace('/homepage');
+      } else {
+        alert(response.statusText);
       }
     }
+    }
   
-    document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
+    document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
