@@ -1,12 +1,12 @@
 
-
 function signupFormHandler(event) {
+
+  event.preventDefault();
   console.log("SCRIPT IS CONNECTED")
-    event.preventDefault();
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-    
-      if (email && password) {
+
+      if (username && password) {
         console.log("CONNECTED TO FETCH LOGIC")
         fetch('/data/users', {
           method: 'post',
@@ -18,5 +18,5 @@ function signupFormHandler(event) {
         }).then((response) => {console.log(response)})
       }
     }
-  
-      document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
+
+document.getElementById("mysignup-form-button").addEventListener("click", signupFormHandler);
