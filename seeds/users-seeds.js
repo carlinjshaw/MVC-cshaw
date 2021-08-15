@@ -7,7 +7,7 @@ const usersData = [
     },
     {
         username: "sandybeach@aol.com",
-        password: "123#ndjeu"
+        password: "password"
     },
     {
         username: "johannbgullan@me.com",

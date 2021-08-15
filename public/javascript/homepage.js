@@ -9,6 +9,10 @@
 // })
 // }
 
-
-
 //     document.querySelector('#login-button').addEventListener('click', displayLogin);
+
+// fetch('/', {
+//    method: "get",
+// }).then((response) => {
+//     console.log(response)
+// })
