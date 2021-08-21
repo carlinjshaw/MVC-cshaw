@@ -100,5 +100,41 @@ res.render('single-post', {post, loggedIn: req.session.loggedIn})
   })
 })
 
-module.exports = router;
 
+router.get("/edit-post/:id", (req, res) => {
+
+  Post.findOne( {
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'title',
+      'content',
+      'created_at'
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+  .then((dbPostData)=> {
+    const post = dbPostData.get({ plain: true });
+    console.log(post)
+    
+res.render('edit-post', {post, loggedIn: req.session.loggedIn})
+  })
+})
+
+
+module.exports = router;

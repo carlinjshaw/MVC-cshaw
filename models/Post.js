@@ -19,11 +19,23 @@ Post.init(
       },
       title: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Title required"
+          }
+        }
       },
       content: {
         type: DataTypes.STRING,
         allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Content required"
+          }
+        }
       },
       user_id: {
         type: DataTypes.INTEGER,
