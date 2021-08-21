@@ -7,7 +7,7 @@ async function editFormHandler(event) {
       window.location.toString().split('/').length - 1
     ];
 
-// if (title & content){
+
 
     const response = await fetch(`/data/posts/${id}`, {
       method: 'PUT',
@@ -25,9 +25,7 @@ async function editFormHandler(event) {
     } else {
       alert("Content and Title are required");
     }
-//   } else {
-//       alert("Fill in the Title and Content")
-//   }
+
 } 
   
   document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);

@@ -7,6 +7,10 @@ const { Post, Comment, User } = require('../models')
 //   res.render('homepage');
 // });
 
+router.get('/', (req, res) => {
+  res.render('homepage')
+})
+
 router.get('/login', (req, res) => {
   res.render('login')
 })
